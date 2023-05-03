@@ -12,10 +12,6 @@ const ClientTable = () => {
     fetchData();
   }, []);
 
-  const style = {
-    border: "border:1px solid black"
-  }
-
   return (
     <div>
       <h2>Clientes:</h2>

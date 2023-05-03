@@ -1,12 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
-import Datatable from 'react-data-table-component'
 import ClientTable from './components/ClientTable';
+import Login from './components/Login';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
     <div>
-      <ClientTable />
+      <Routes>
+        <Route path='/' element={<Login />} />
+        <Route exact path='/client/get' element={<ClientTable />} />
+      </Routes>
     </div>
   );
 }
