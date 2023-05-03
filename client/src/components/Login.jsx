@@ -6,6 +6,7 @@ import '../assets/Login.css'
 
 const Login = () => {
   const [formState, setFormState] = useState({
+    
     form: {
       username: "",
       password: ""
@@ -29,9 +30,9 @@ const Login = () => {
   const handleButtonSubmit = (e) => {
     axios.post('https://api-dev.vimcashcorp.com/usuario/iniciarsesion', formState.form)
       .then(response => {
-        if (response.status === 200 && response.data.success) {
-          // Si la respuesta es exitosa, navega a la ruta deseada
-          navigate('/client/get', { replace: true })
+        if (response.status === "ok" && response.data.success) {
+          localStorage.setItem("token", response.data.result.token);
+          navigate('client/get')
         } else {
           // Si la respuesta es incorrecta, muestra un mensaje de error
           console.log(response.data.message);
